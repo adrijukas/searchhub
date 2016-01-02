@@ -1,0 +1,14 @@
+<div>
+  <div>Name: {{employee.firstName}} {{employee.lastName}}</div>
+  <div>Company: {{employee.company}}</div>
+  <div>Location: {{employee.location}}</div>
+  <div>E-mail: {{employee.email}}</div>
+  <div>Followers: {{employee.followers}}</div>
+  <div>
+    Blog: <a href="{{employee.blog}}">{{employee.firstName}} {{employee.lastName}} blog</a>
+  </div>
+  <!--we can set the value of the attributes within the tags -->
+  <div>
+    <img ng-src="{{employee.picture}}" height="80" width="100" title="{{employee.firstName}} {{employee.lastName}}">
+  </div>
+</div>

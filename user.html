@@ -1,0 +1,55 @@
+<div>
+  <!--adds a link to the main page, i.e. the search form -->
+  <a href="#/main">Back to search</a><br/>
+  <!--error would only be displayed in case of an error returned-->
+  <div id="errorDetails" class="errorStyle">{{error}}</div>
+  <div ng-show="user">
+    <!--adding an id to the element, to tell the location service where to go -->
+    <div id="userDetails">Name: {{user.name}}</div>
+    <div>Company: {{user.company}}</div>
+    <div>Location: {{user.location}}</div>
+    <div>E-mail: {{user.email}}</div>
+    <div>Followers: {{user.followers}}</div>
+    <div>
+      <!--display the blog link as user's name-->
+      Blog: <a href="{{user.blog}}">{{user.name}}</a>
+    </div>
+
+    <div>
+      <!--set the URL to get the picture of the avatar-->
+      <img ng-src="{{user.avatar_url}}" height="80" width="80" title="{{user.name}}">
+      <!--currently all gravatar_ids are empty, so a default image will be displayed 
+      but below is just an example to show how expressions can be embedded into a link-->
+      <img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{user.name}}">
+    </div>
+
+    <br> Order by:
+    <!-- bind the select tag to repoSortOrder-->
+    <select ng-model="repoSortOrder">
+      <!-- displaying arrows up/down to indicate sorting order -->
+      <option value="+name">Name &uarr;</option>
+      <option value="-stargazers_count">Stars &darr;</option>
+      <option value="+language">Language &uarr;</option>
+    </select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Stars</th>
+          <th>Language</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--loop through all repositories returned and create a row for each
+        to order the list I could use syntax orderBy:'-language', or like below
+        I could have a property on my scope and use its value here-->
+        <tr ng-repeat="repo in repositories | limitTo:15 | orderBy:repoSortOrder">
+          <td><a href="#/repo/{{username}}/{{repo.name}}">{{repo.name}}</a></td>
+          <td>{{repo.stargazers_count | number}}</td>
+          <td>{{repo.language}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<!--the routing rules will be specifying which controller is gonna be used
+for this html file, therefore it is no longer specified here -->
+<div>
+    <!--hide the counter when the countdown goes down to 0 
+    OR the interval was cancelled due to user initiated search function -->
+    <div ng-hide="!countdown || intervalCancelled">{{countdown}}</div>
+    <form name="searchUser" ng-submit="search(username)">
+      <!--binds the input tag to the username model -->
+      <input type="search" required="" placeholder="Username to find" ng-model="username" />
+      <!--creates 'Search' button -->
+      <input type="submit" value="Search" />
+    </form>
+</div>

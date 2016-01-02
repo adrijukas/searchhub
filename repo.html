@@ -1,0 +1,12 @@
+<a href="#/user/{{username}}">Back to {{username}}</a>
+<br/>
+<h2>{{repo.name}}</h2>
+<p>Issues: {{repo.open_issues_count}}</p>
+<div>
+  <ul>
+    <!-- here we are accessing the contributors property directly off the repo -->
+    <li ng-repeat="contributor in repo.contributors | limitTo:5">
+      <img ng-src="{{contributor.avatar_url}}" height="80" width="80" title="{{contributor.login}}"> {{contributor.login}}
+    </li>
+  </ul>
+</div>
