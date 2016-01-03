@@ -5,3 +5,7 @@
 .errorStyle {
   color: red;
 }
+
+.tableStyle {
+  border-collapse: collapse;
+}
