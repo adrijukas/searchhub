@@ -12,9 +12,13 @@
     $routeProvider
       .when("/main", {
         templateUrl: "main.html",
-        // controller is optional, 
+        // controller is optional,
         // if not here, then it must be specified in the html
         controller: "searchController"
+      })
+      .when("/users", {
+        templateUrl: "users.html",
+        controller:"usersController"
       })
        //':' means parameter onwards and used by $routeParams in a controller
       .when("/user/:username", {

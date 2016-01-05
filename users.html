@@ -1,0 +1,18 @@
+<div>
+  <a href="#/main">Back to search</a><br/>
+  <div class="errorStyle">{{error}}</div>
+  <div ng-show="users">
+    <table class="tableStyle" border="1">
+      <thead>
+        <tr>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users">
+          <td><a href="#/user/{{user.login}}">{{user.login}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
