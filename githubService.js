@@ -3,6 +3,10 @@
   // my service has a dependencie on another services - $http
   var github = function($http) {
 
+    var getUsers = function() {
+      return getData("https://api.github.com/users");
+    };
+
     // get the user
     // the caller of this function will still get a promise returned
     var getUser = function(username) {
@@ -26,9 +30,9 @@
 
     // chaining the calls to get repo and contributors together.
     // It uses the result of a previous asynchronous call to trigger a next one
-    // If then() callback returns another promise, the next then() 
-    // will only be executed once that promise resolves. 
-    // This pattern can be used for serial HTTP requests, 
+    // If then() callback returns another promise, the next then()
+    // will only be executed once that promise resolves.
+    // This pattern can be used for serial HTTP requests,
     // for example where a request depends on the result of a previous one
     var getRepoDetails = function(username, reponame) {
       var repoUrl = "https://api.github.com/repos/" + username + "/" + reponame;
@@ -46,6 +50,7 @@
 
     // returns an object that is the github service
     return {
+      getUsers: getUsers,
       getUser: getUser,
       getRepositories: getRepos,
       getRepoDetails: getRepoDetails

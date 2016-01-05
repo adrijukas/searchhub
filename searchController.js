@@ -13,10 +13,24 @@
       if (!$scope.intervalCancelled) {
         $scope.intervalCancelled = cancelInterval();
       }
-      
+
       // have search engine navigate to the new route
       $location.path("/user/" + username);
     };
+
+    $scope.searchAll = function() {
+      // prevents from being submitted as part of 'Search' form
+      // only gets executed on 'Search All' button click
+      $scope.v = 0;
+
+      console.log("Search All clicked");
+
+      if (!$scope.intervalCancelled) {
+        $scope.intervalCancelled = cancelInterval();
+      }
+
+      $location.path("/users");
+    }
 
     var cancelInterval = function() {
       if (intervalPromise) {
@@ -43,7 +57,7 @@
     };
 
     $scope.search = userSearch;
-    
+
     // default value for the search form
     $scope.username = "angular";
     $scope.countdown = 5;

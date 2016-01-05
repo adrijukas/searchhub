@@ -11,6 +11,7 @@
   <script src="createWorker.js"></script>
   <script src="myDetailsController.js"></script>
   <script src="searchController.js"></script>
+  <script src="usersController.js"></script>
   <script src="userController.js"></script>
   <script src="repoController.js"></script>
   <script src="githubService.js"></script>
@@ -23,11 +24,12 @@
     <h2>{{message}}</h2>
     <p>Length: {{message.length}}</p>
 
-    <!--below reuses the code from elsewhere, 
+    <!--below reuses the code from elsewhere,
     show that code only when the employee is "truthy", which is always true.
     In reality, employee would be retrieved from server, so it would make
     more sense then to have ng-show directive-->
     <div ng-include="'myDetails.html'" ng-show="employee"></div>
+
   </div>
   <br/>
   <!-- include the rendered template of the current route into the main layout -->
