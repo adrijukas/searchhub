@@ -9,7 +9,7 @@
 
     // get the user
     // the caller of this function will still get a promise returned
-    var getUser = function(username) {
+    var getUserDetails = function(username) {
       return getData("https://api.github.com/users/" + username);
     };
 
@@ -51,7 +51,7 @@
     // returns an object that is the github service
     return {
       getUsers: getUsers,
-      getUser: getUser,
+      getUserDetails: getUserDetails,
       getRepositories: getRepos,
       getRepoDetails: getRepoDetails
     };
