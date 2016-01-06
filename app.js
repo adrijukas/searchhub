@@ -22,8 +22,8 @@
       })
        //':' means parameter onwards and used by $routeParams in a controller
       .when("/user/:username", {
-        templateUrl: "user.html",
-        controller:"userController"
+        templateUrl: "userDetails.html",
+        controller:"userDetailsController"
       })
       .when("/repo/:username/:reponame", {
         templateUrl: "repo.html",

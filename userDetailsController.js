@@ -34,15 +34,15 @@
     // get the username from the URL using $routeParams service
     $scope.username = $routeParams.username;
     $scope.repoSortOrder = "+language"; // use '-' for descending order
-    
+
     // get the user - this is executed as soon as the controller is created
-    github.getUser($scope.username).then(onUserComplete, onError);
+    github.getUserDetails($scope.username).then(onUserComplete, onError);
   };
 
   // get the app module - ask angular to give reference to myApp
   var app = angular.module("myApp");
 
   // add controller to app module and name it 'retrieveFromServerController'
-  app.controller("userController", controller);
+  app.controller("userDetailsController", controller);
 
 }());
